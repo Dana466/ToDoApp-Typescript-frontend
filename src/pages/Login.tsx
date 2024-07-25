@@ -30,7 +30,7 @@ export const ThemeContext = createContext<ThemeContextProps | null>(null);
         axios
           .post(`${process.env.REACT_APP_BASE_URL}/user/login`, { email, password })
           .then((result) => {
-            if (result.data.message === 'Login Successful') {
+            if (result.status===200) {
               localStorage.setItem('token', result.data.token);
               alert('Login In Successfully');
               navigate('/todo');
